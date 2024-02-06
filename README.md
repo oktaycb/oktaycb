@@ -2,8 +2,7 @@ Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-912
 =============================================================================================================================software developer------------------* 🌍  I'm based in turkey* ✉️  You can contact me at [oktay@f3yz.wtf](mailto: oktay@f3yz.wtf )* 🚀  I'm currently working on [42Piscine Projects/Exams](http://github.com/oktaycb)* 🧠  I'm learning C, IDA debugger* 🤝  I'm open to collaborating on 42 piscine BSQ project
 
 <a href="https://www.github.com/oktaycb" target="_blank" rel="noreferrer"><img
-src="https://img.shields.io/github/followers/oktaycb?logo=github&style=for-the-badge&color=0891b2&labelColor=1c1917" /></a><a href="https://www.twitch.tv/ff3yz" target="_blank" rel="noreferrer">
-<imgsrc="https://img.shields.io/twitch/status/ff3yz?logo=twitchsx&style=for-the-badge&color=0891b2&labelColor=1c1917&label=TWITCH+STATUS"/></a>
+src="https://img.shields.io/github/followers/oktaycb?logo=github&style=for-the-badge&color=0891b2&labelColor=1c1917" /></a><a href="https://www.twitch.tv/ff3yz" target="_blank" rel="noreferrer"><imgsrc="https://img.shields.io/twitch/status/ff3yz?logo=twitchsx&style=for-the-badge&color=0891b2&labelColor=1c1917&label=TWITCH+STATUS" /></a>
 
 ### Skills
 
