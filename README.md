@@ -1,5 +1,5 @@
 <p>Hi 👋 My name is Oktay <br>
-Software developer</p>
+Software Developer</p>
 <p>🌍  I'm based in Earth <br>
 ✉️  You can contact me at <a href="mailto:oktay@f3yz.wtf">oktay@f3yz.wtf</a><br>
 🚀  I'm currently working on RPG Terminal Game <br>
