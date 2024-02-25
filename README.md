@@ -2,8 +2,8 @@
 Software developer</p>
 <p>🌍  I'm based in Earth <br>
 ✉️  You can contact me at <a href="mailto:oktay@f3yz.wtf">oktay@f3yz.wtf</a><br>
-🚀  I'm currently working on <a href="https/github.com/oktaycb/42piscine">42Piscine Projects</a><br>
-🧠  I'm learning C, IDA debugger <br>
+🚀  I'm currently working on RPG Terminal Game <br>
+🧠  C developer also IDA debugger <br>
 
 
 ### Skills
