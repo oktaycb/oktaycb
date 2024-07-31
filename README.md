@@ -17,7 +17,7 @@ Software Developer</p>
 
 <b>Top Repositories</b>
 
-<div width="100%" align="center"><a href="https://github.com/oktaycb/42_Piscine" align="left"><img align="left" width="45%" src="https://github-readme-stats.vercel.app/api/pin/?username=oktaycb&repo=42_Piscine&title_color=ef4444&text_color=ffffff&icon_color=ef4444&bg_color=1c1917&hide_border=true&locale=en" /></a></div><br /><br /><br /><br /><br /><br /><br />
+<div width="100%" align="center"><a href="https://github.com/oktaycb/42_Piscine" align="left"><img align="left" width="45%" src="https://github-readme-stats.vercel.app/api/pin/?username=oktaycb&repo=42_Piscine&title_color=ef4444&text_color=ffffff&icon_color=ef4444&bg_color=1c1917&hide_border=true&locale=en" /></a>
 
 <div width="100%" align="center"><a href="https://github.com/oktaycb/DeepAny.AI" align="left"><img align="left" width="45%" src="https://github-readme-stats.vercel.app/api/pin/?username=oktaycb&repo=DeepAny.AI&title_color=ef4444&text_color=ffffff&icon_color=ef4444&bg_color=1c1917&hide_border=true&locale=en" /></a></div><br /><br /><br /><br /><br /><br /><br />
 
