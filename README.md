@@ -1,7 +1,5 @@
 <p>Hi 👋 It's Oktay <br>
 Software Developer</p>
-<p>🌍  I'm based in Earth <br>
-✉️  You can contact me at <a href="mailto:oktay@f3yz.wtf">oktay@f3yz.wtf</a><br>
 🚀  I'm currently working on DeepAny.AI <br>
 🧠  C & Web developer <br>
 
