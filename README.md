@@ -1,7 +1,7 @@
 <p>Hi 👋 It's Oktay <br>
 Software Developer</p>
-🚀  I'm currently working on DeepAny.AI <br>
-🧠  C & Web developer <br>
+🚀  I'm currently working on a reverse engineering project <br>
+🧠  C / C++ developer & reverse engineer <br>
 
 
 ### Skills
