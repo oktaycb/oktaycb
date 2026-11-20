@@ -1,0 +1,87 @@
+name: Generate private stats badges
+
+on:
+  schedule:
+    - cron: "30 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Query stats and render badges
+        env:
+          GH_TOKEN: ${{ secrets.PRIVATE_STATS_TOKEN }}
+        run: |
+          set -e
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::warning::PRIVATE_STATS_TOKEN secret is not set — skipping badge generation."
+            exit 0
+          fi
+          mkdir -p dist
+
+          # 1) Private owned repos + their default-branch commit counts (all time)
+          RESP=$(gh api graphql -f query='query { viewer { repositories(first: 100, privacy: PRIVATE, ownerAffiliations: OWNER) { totalCount nodes { defaultBranchRef { target { ... on Commit { history { totalCount } } } } } } } }')
+          REPOS=$(echo "$RESP" | jq '.data.viewer.repositories.totalCount')
+          PRIVATE=$(echo "$RESP" | jq '[.data.viewer.repositories.nodes[].defaultBranchRef.target.history.totalCount // 0] | add // 0')
+
+          # 2) All-time PUBLIC contributions:
+          #    contribution calendar minus private (restricted) contributions,
+          #    summed year by year since account creation.
+          CREATED="2022-01-24T20:18:10Z"
+          NOW=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          PUBLIC=0
+          FROM="$CREATED"
+          while :; do
+            TO=$(date -u -d "$FROM +1 year" +%Y-%m-%dT%H:%M:%SZ)
+            if [[ "$TO" > "$NOW" ]]; then TO="$NOW"; fi
+            P=$(gh api graphql -f query='query($from: DateTime!, $to: DateTime!) { viewer { contributionsCollection(from: $from, to: $to) { contributionCalendar { totalContributions } restrictedContributionsCount } } }' -f from="$FROM" -f to="$TO" --jq '.data.viewer.contributionsCollection.contributionCalendar.totalContributions - .data.viewer.contributionsCollection.restrictedContributionsCount')
+            PUBLIC=$((PUBLIC + P))
+            if [[ "$TO" == "$NOW" ]]; then break; fi
+            FROM="$TO"
+          done
+
+          TOTAL=$((PRIVATE + PUBLIC))
+          echo "private repos: $REPOS, private commits: $PRIVATE, public contributions: $PUBLIC, total: $TOTAL"
+
+          make_badge() {
+            local label="$1" value="$2" out="$3"
+            local lw=$(( ${#label} * 9 + 20 ))
+            local vw=$(( ${#value} * 9 + 20 ))
+            local w=$(( lw + vw ))
+            cat > "dist/$out" <<EOF
+          <svg xmlns="http://www.w3.org/2000/svg" width="$w" height="28" role="img" aria-label="$label: $value">
+            <title>$label: $value</title>
+            <linearGradient id="g" x2="0" y2="100%">
+              <stop offset="0" stop-color="#fff" stop-opacity=".08"/>
+              <stop offset="1" stop-opacity=".12"/>
+            </linearGradient>
+            <clipPath id="r"><rect width="$w" height="28" rx="4"/></clipPath>
+            <g clip-path="url(#r)">
+              <rect width="$lw" height="28" fill="#0D1117"/>
+              <rect x="$lw" width="$vw" height="28" fill="#00FF9C"/>
+              <rect width="$w" height="28" fill="url(#g)"/>
+            </g>
+            <g text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="12" font-weight="bold">
+              <text x="$((lw / 2))" y="19" fill="#00FF9C">$label</text>
+              <text x="$((lw + vw / 2))" y="19" fill="#0D1117">$value</text>
+            </g>
+          </svg>
+          EOF
+          }
+
+          make_badge "PRIVATE REPOS" "$REPOS" "private-repos.svg"
+          make_badge "PRIVATE COMMITS" "$PRIVATE" "private-commits.svg"
+          make_badge "TOTAL CONTRIBUTIONS" "$TOTAL" "total-contributions.svg"
+
+      - name: Push badges to the badges branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: badges
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
