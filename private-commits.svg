@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="202" height="28" role="img" aria-label="PRIVATE COMMITS: 338">
+  <title>PRIVATE COMMITS: 338</title>
+  <linearGradient id="g" x2="0" y2="100%">
+    <stop offset="0" stop-color="#fff" stop-opacity=".08"/>
+    <stop offset="1" stop-opacity=".12"/>
+  </linearGradient>
+  <clipPath id="r"><rect width="202" height="28" rx="4"/></clipPath>
+  <g clip-path="url(#r)">
+    <rect width="155" height="28" fill="#0D1117"/>
+    <rect x="155" width="47" height="28" fill="#00FF9C"/>
+    <rect width="202" height="28" fill="url(#g)"/>
+  </g>
+  <g text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="12" font-weight="bold">
+    <text x="77" y="19" fill="#00FF9C">PRIVATE COMMITS</text>
+    <text x="178" y="19" fill="#0D1117">338</text>
+  </g>
+</svg>
