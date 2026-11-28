@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="175" height="28" role="img" aria-label="PRIVATE REPOS: 23">
+  <title>PRIVATE REPOS: 23</title>
+  <linearGradient id="g" x2="0" y2="100%">
+    <stop offset="0" stop-color="#fff" stop-opacity=".08"/>
+    <stop offset="1" stop-opacity=".12"/>
+  </linearGradient>
+  <clipPath id="r"><rect width="175" height="28" rx="4"/></clipPath>
+  <g clip-path="url(#r)">
+    <rect width="137" height="28" fill="#0D1117"/>
+    <rect x="137" width="38" height="28" fill="#00FF9C"/>
+    <rect width="175" height="28" fill="url(#g)"/>
+  </g>
+  <g text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="12" font-weight="bold">
+    <text x="68" y="19" fill="#00FF9C">PRIVATE REPOS</text>
+    <text x="156" y="19" fill="#0D1117">23</text>
+  </g>
+</svg>
